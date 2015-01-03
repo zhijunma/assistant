@@ -42,6 +42,12 @@ public class Behavior {
   	  	softcontrol.softtimer.nowframe=0;
 	}
 	
+	public void startjump(){
+		softcontrol.softtimer.flashid=5;
+  	  	softcontrol.softtimer.frame=8;
+  	  	softcontrol.softtimer.nowframe=0;
+	}
+	
 	public void wordchange(){
 		Random random = new Random();
 		if(softcontrol.softtimer.flashid==2)

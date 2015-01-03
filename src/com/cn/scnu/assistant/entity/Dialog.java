@@ -15,8 +15,6 @@ public class Dialog {
 	
 	public boolean say = false;
 	
-	public SoftIcons icons = new SoftIcons();
-	
 	public Dialog(int x,int y){
 		
 		this.x=x;
@@ -27,7 +25,7 @@ public class Dialog {
 	public void draw(Graphics g){
 		
 		if(say)
-			g.drawImage(icons.DIALOG_IMG2 ,x , y, null);
+			g.drawImage(SoftIcons.DIALOG_IMG2 ,x , y, null);
 		
 	}
 }

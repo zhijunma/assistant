@@ -37,15 +37,17 @@ public class TimerControl {
 					softcontrol.wait.frame=0;
 					softcontrol.dance.frame=0;
 					softcontrol.speak.frame=0;
+					softcontrol.jump.frame=0;
 					switch(flashid){
 						case 1:softcontrol.sleep.frame=nowframe;break;
 						case 2:softcontrol.wait.frame=nowframe;break;
 						case 3:softcontrol.dance.frame=nowframe;break;
 						case 4:softcontrol.speak.frame=nowframe;break;
+						case 5:softcontrol.jump.frame=nowframe;break;
 					}
 					softcontrol.panel.repaint();
 				}
-				if(flashid == 3 || flashid ==1){
+				if(flashid == 3 || flashid ==1 || flashid ==5){
 					softcontrol.softdao.behave.startwait();
 				}
 				softcontrol.sleep.frame=0;
@@ -68,7 +70,7 @@ public class TimerControl {
 					else softcontrol.dialog.say=true;
 					softcontrol.softdao.behave.wordchange();
 					try {
-						if(flashid==2) Thread.sleep(10000);
+						if(flashid==2) Thread.sleep(7000);
 						else Thread.sleep(4000);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block

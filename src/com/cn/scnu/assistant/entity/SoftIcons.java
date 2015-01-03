@@ -14,9 +14,13 @@ public class SoftIcons {
 	
 	public Image[] DANCE_IMG = new Image[73];	
 	
-	public Image DIALOG_IMG ;		
+	public Image[] JUMP_IMG = new Image[8];	
 	
-	public Image DIALOG_IMG2 ;	
+	public static final Image DIALOG_IMG = new ImageIcon("image/win/dialog.png").getImage();;		
+	
+	public static final Image DIALOG_IMG2 = new ImageIcon("image/win/dialog2.png").getImage();	
+	
+	public static final Image ICON_IMG = new ImageIcon("image/icon/icon.png").getImage();
 	
 	public SoftIcons(){
 		
@@ -36,9 +40,10 @@ public class SoftIcons {
 			DANCE_IMG[i] = new ImageIcon("image/dance/dance0"+i+".png").getImage();
 		}
 		
-		DIALOG_IMG  = new ImageIcon("image/win/dialog.png").getImage();
+		for(int i=0;i<8;i++){
+			JUMP_IMG[i] = new ImageIcon("image/jump/jump00"+i+".png").getImage();
+		}
 		
-		DIALOG_IMG2  = new ImageIcon("image/win/dialog2.png").getImage();
 	}
 	
 }

@@ -10,7 +10,8 @@ public class Say {
 			"B站动漫更新了",
 			"我耳朵是天线哦",
 			"我最喜欢主人啦",
-			"I love dancing"
+			"I love dancing",
+			"点我头发嘿嘿Y^_^Y"
 	};
 	
 }

@@ -24,6 +24,7 @@ public class JPanelSoft extends JPanel{
 		softcontrol.wait.draw(g);
 		softcontrol.dance.draw(g);
 		softcontrol.speak.draw(g);
+		softcontrol.jump.draw(g);
 		
 		if(softcontrol.dialog.say ){
 			softcontrol.dialog.draw(g);
