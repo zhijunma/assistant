@@ -1,26 +1,26 @@
 package com.cn.scnu.assistant.service;
 
-import java.io.IOException;
-
 import org.jsoup.Jsoup;
 import org.jsoup.select.Elements;
 
+import java.io.IOException;
+
 public class Posthtml {
-	
-	public static String getDocument(String url) {  
-	        String text = "";  
-	        try {  
-	            // ÉèÖÃ±àÂë¼¯  
-	            org.jsoup.nodes.Document doc = Jsoup.connect(url).get();
-	            // ÌáÈ¡divÖĞµÄÎÄ±¾ĞÅÏ¢  
-	            Elements divs = doc.select("div[class=v]");  
-	            for (org.jsoup.nodes.Element link : divs) {  
-	                text += link.text() + "\n";  
-	            }  
-	        } catch (IOException e) {  
-	            e.printStackTrace();  
-	        }  
-	  
-	        return text;  
-	    } 
+
+	public static String getDocument(String url) {
+		String text = "";
+		try {
+			// è®¾ç½®ç¼–ç é›†
+			org.jsoup.nodes.Document doc = Jsoup.connect(url).get();
+			// æå–divä¸­çš„æ–‡æœ¬ä¿¡æ¯
+			Elements divs = doc.select("div[class=v]");
+			for (org.jsoup.nodes.Element link : divs) {
+				text += link.text() + "\n";
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return text;
+	}
 }

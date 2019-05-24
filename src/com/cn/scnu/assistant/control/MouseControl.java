@@ -9,85 +9,87 @@ public class MouseControl extends MouseAdapter {
 
 	private SoftControl softcontrol;
 	private Point origin = new Point();
-	
+
 	public MouseControl(SoftControl softcontrol){
-		
+
 		this.softcontrol = softcontrol;
-		
+
 	}
-	
+
 	@Override
-	 public void mousePressed(MouseEvent e) {
-	      origin.x = e.getX(); 
-	      origin.y = e.getY();
-	     //System.out.println(origin.x+","+origin.y);
-	      if(origin.x>145 && origin.x<165 && origin.y>210 && origin.y<255 && softcontrol.softtimer.flashid==2){
-	    	  //System.out.println("ÍÈ");
-	    	  softcontrol.softdao.behave.startdance();
-	      }
-	      else if(origin.x>135 && origin.x<180 && origin.y>92 && origin.y<110 && softcontrol.softtimer.flashid==2){
-	    	  //System.out.println("ÑÛ¾¦");
-	    	  softcontrol.softdao.behave.startsleep();
-	      }
-	      else if(origin.x>125 && origin.x<190 && origin.y>48 && origin.y<65 && softcontrol.softtimer.flashid==2){
-	    	  //System.out.println("¶ú¶ä");
-	    	  softcontrol.softdao.behave.startspeak();
-	      }
-	      else if(origin.x>40 && origin.x<80 && origin.y>70 && origin.y<150 && softcontrol.softtimer.flashid==4){
-	    	  //System.out.println("´Ð");
-	    	  softcontrol.softdao.behave.startwait();
-	      }
-	      else if((origin.x>190 || origin.x<125) && origin.y>160 && origin.y<250 && softcontrol.softtimer.flashid==2){
-	    	 // System.out.println("Í··¢");
-	    	  softcontrol.softdao.behave.startjump();
-	      }
-	 }
-	 
+	public void mousePressed(MouseEvent e) {
+		origin.x = e.getX();
+		origin.y = e.getY();
+		System.out.println(origin.x+","+origin.y);
+		if(origin.x>145 && origin.x<165 && origin.y>210 && origin.y<255 && softcontrol.softtimer.flashid==2){
+			//System.out.println("è…¿");
+			softcontrol.softdao.behave.startdance();
+		}
+		else if(origin.x>135 && origin.x<180 && origin.y>92 && origin.y<110 && softcontrol.softtimer.flashid==2){
+			//System.out.println("çœ¼ç›");
+			softcontrol.softdao.behave.startsleep();
+		}
+		else if(origin.x>125 && origin.x<190 && origin.y>48 && origin.y<65 && softcontrol.softtimer.flashid==2){
+			//System.out.println("è€³æœµ");
+			softcontrol.softdao.behave.startspeak();
+		}
+		else if(origin.x>40 && origin.x<80 && origin.y>70 && origin.y<150 && softcontrol.softtimer.flashid==4){
+			//System.out.println("è‘±");
+			softcontrol.softdao.behave.startwait();
+		}
+		else if((origin.x>190 || origin.x<125) && origin.y>160 && origin.y<250 && softcontrol.softtimer.flashid==2){
+			// System.out.println("å¤´å‘");
+			softcontrol.softdao.behave.startjump();
+		}
+	}
+
 	/**
-	* Êó±êÒÆ½ø±êÌâÀ¸Ê±£¬ÉèÖÃÊó±êÍ¼±êÎªÒÆ¶¯Í¼±ê
-	*/
+	 * é¼ æ ‡ç§»è¿›æ ‡é¢˜æ æ—¶ï¼Œè®¾ç½®é¼ æ ‡å›¾æ ‡ä¸ºç§»åŠ¨å›¾æ ‡
+	 */
 	@Override
-	 public void mouseEntered(MouseEvent e) {
-	     softcontrol.frame.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	 }
-	     
-	 /**
-	  * Êó±êÒÆ³ö±êÌâÀ¸Ê±£¬ÉèÖÃÊó±êÍ¼±êÎªÄ¬ÈÏÖ¸Õë
+	public void mouseEntered(MouseEvent e) {
+		softcontrol.frame.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	}
+
+	/**
+	 * é¼ æ ‡ç§»å‡ºæ ‡é¢˜æ æ—¶ï¼Œè®¾ç½®é¼ æ ‡å›¾æ ‡ä¸ºé»˜è®¤æŒ‡é’ˆ
 	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
-	   	softcontrol.frame.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		softcontrol.frame.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	}
-	    
-    /**
-    * Êó±êÔÚ±êÌâÀ¸ÍÏ×§Ê±£¬ÉèÖÃ´°¿ÚµÄ×ø±êÎ»ÖÃ
-    * ´°¿ÚÐÂµÄ×ø±êÎ»ÖÃ = ÒÆ¶¯Ç°×ø±êÎ»ÖÃ+£¨Êó±êÖ¸Õëµ±Ç°×ø±ê-Êó±ê°´ÏÂÊ±Ö¸ÕëµÄÎ»ÖÃ£©
-    */
-    @Override
-    public void mouseDragged(MouseEvent e) {
-      Point p = softcontrol.frame.getLocation();
-      softcontrol.frame.setLocation(
-        p.x + (e.getX() - origin.x), 
-        p.y + (e.getY() - origin.y)); 
-    }
- 
-    @Override
-    public void mouseMoved(MouseEvent e) {}
-	
+
+	/**
+	 * é¼ æ ‡åœ¨æ ‡é¢˜æ æ‹–æ‹½æ—¶ï¼Œè®¾ç½®çª—å£çš„åæ ‡ä½ç½®
+	 * çª—å£æ–°çš„åæ ‡ä½ç½® = ç§»åŠ¨å‰åæ ‡ä½ç½®+ï¼ˆé¼ æ ‡æŒ‡é’ˆå½“å‰åæ ‡-é¼ æ ‡æŒ‰ä¸‹æ—¶æŒ‡é’ˆçš„ä½ç½®ï¼‰
+	 */
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		Point p = softcontrol.frame.getLocation();
+		softcontrol.frame.setLocation(
+				p.x + (e.getX() - origin.x),
+				p.y + (e.getY() - origin.y));
+	}
+	//å½“é¼ æ ‡
+	@Override
+	public void mouseMoved(MouseEvent e) {
+//		System.out.println("x:"+e.getX()+"y"+e.getY());
+	}
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 		/*
-		 * ÓÎÏ·ÇøÓò
+		 * æ¸¸æˆåŒºåŸŸ
 		 */
 		if(e.getX()>170 && e.getY()>140 && e.getX()<170+126*5 && e.getY()<140+126*3){
-			
-			//int nowx = (e.getX()-170)/126;							//×ª»¯ÎªµØÍ¼×ø±ê
-			//int nowy = (e.getY()-140)/126;							//×ª»¯ÎªµØÍ¼×ø±ê
-			
-			
+
+			//int nowx = (e.getX()-170)/126;							//è½¬åŒ–ä¸ºåœ°å›¾åæ ‡
+			//int nowy = (e.getY()-140)/126;							//è½¬åŒ–ä¸ºåœ°å›¾åæ ‡
+
+
 		}
 	}
-	
+
 }
