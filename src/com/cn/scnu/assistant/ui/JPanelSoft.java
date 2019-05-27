@@ -8,9 +8,9 @@ import java.awt.*;
 
 @SuppressWarnings("serial")
 public class JPanelSoft extends JPanel{
-//	ImageIcon [] img = new ImageIcon[5];
-//	//创建一组按钮
-//	JButton [] jButtons = new JButton[5];
+	ImageIcon [] img = new ImageIcon[5];
+	//创建一组按钮
+	JButton [] jButtons = new JButton[5];
 	public SoftControl softcontrol;
 	int status = 0;
 	public JPanelSoft(SoftControl softcontrol){
@@ -29,7 +29,7 @@ public class JPanelSoft extends JPanel{
 		softcontrol.speak.draw(g);
 		softcontrol.jump.draw(g);
 		ButtonControl1 buttonControl1 = new ButtonControl1();
-		/*获取按钮样式图片，并且让图片适应按钮大小*/
+//		/*获取按钮样式图片，并且让图片适应按钮大小*/
 //		for (int i = 0; i<5 ;i++){
 //			img[i] = new ImageIcon("image/buttonImage/"+i+".png");
 //			Image temp = img[i].getImage().getScaledInstance(20,20, img[i].getImage().SCALE_DEFAULT);
@@ -70,15 +70,6 @@ public class JPanelSoft extends JPanel{
 //		});
 		if(softcontrol.dialog.say ){
 			softcontrol.dialog.draw(g);
-//			if (status == 1){
-//				g.drawString("skr", 10, 20);
-//				try {
-//					Thread.sleep(2000);
-//					status = 0;
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//			}
 			g.drawString(softcontrol.softdao.behave.word, 10, 20);
 
 

@@ -73,7 +73,7 @@ public class MouseControl extends MouseAdapter {
 	//当鼠标
 	@Override
 	public void mouseMoved(MouseEvent e) {
-//		System.out.println("x:"+e.getX()+"y"+e.getY());
+		System.out.println("x:"+e.getX()+"y"+e.getY());
 	}
 
 	@Override
@@ -87,8 +87,6 @@ public class MouseControl extends MouseAdapter {
 
 			//int nowx = (e.getX()-170)/126;							//转化为地图坐标
 			//int nowy = (e.getY()-140)/126;							//转化为地图坐标
-
-
 		}
 	}
 
