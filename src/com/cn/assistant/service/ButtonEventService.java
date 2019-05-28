@@ -1,6 +1,6 @@
 package com.cn.assistant.service;
 
-import com.cn.assistant.ui.InsertCommandUI;
+import com.cn.assistant.control.TreadControl;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,8 +13,11 @@ public class ButtonEventService implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //响应输入文本的按钮
         if (i == 0 && frameState == 0){
-                new InsertCommandUI();
+//                new InsertCommandUI();
+            TreadControl treadControl = new TreadControl();
+            treadControl.InsertCommandUITread();
             }
+
         //
         else if (i == 1){
             System.out.println("1");

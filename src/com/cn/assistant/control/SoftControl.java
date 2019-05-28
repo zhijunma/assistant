@@ -66,7 +66,7 @@ public class SoftControl {
 			PopupMenu popup = new PopupMenu();
 
 			//主界面选项
-			MenuItem mainFrameItem = new MenuItem("mainframe");
+			MenuItem mainFrameItem = new MenuItem("main");
 			mainFrameItem.addActionListener(listener1);
 
 			//最小化界面
@@ -78,7 +78,7 @@ public class SoftControl {
 			exitItem.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if (JOptionPane.showConfirmDialog(null, "yes or no", " ", JOptionPane.YES_NO_OPTION) == 0) {
+					if (JOptionPane.showConfirmDialog(null, "ok？", " ", JOptionPane.YES_NO_OPTION) == 0) {
 						System.exit(0);
 					}
 				}
@@ -96,6 +96,7 @@ public class SoftControl {
 			} catch (AWTException e1) {
 				e1.printStackTrace();
 			}
+
 		}
 	}
 
