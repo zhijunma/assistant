@@ -1,5 +1,7 @@
 package com.cn.assistant.ui;
 
+import com.cn.assistant.service.ButtonEventService;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,22 +13,24 @@ public class InsertCommandUI extends JFrame {
     private JButton jb2;
     private JTextField jt=new JTextField();
     public String string;
-    public InsertCommandUI(){
 
-        //è®¾ç½®çª—ä½“é€æ˜
+
+    public InsertCommandUI(){
+        ButtonEventService.frameState = 1;
+        //ÉèÖÃ´°ÌåÍ¸Ã÷
         this.setUndecorated(true);
-        this.setBackground(new Color(0, 0, 0, 0));//alphaåˆ†é‡ä¸ºé›¶
+        this.setBackground(new Color(0, 0, 0, 0));//alpha·ÖÁ¿ÎªÁã
 
         jp.setLayout(null);
         jt.setBounds(80, 20, 600, 100);
-        jt.setFont(new Font("å®‹ä½“",Font.PLAIN,30));
+        jt.setFont(new Font("ËÎÌå",Font.PLAIN,30));
         jp.add(jt);
         jp.setOpaque(false);
 
-        //è¿™é‡Œè®¾ç½®ç¡®å®šæŒ‰é’®çš„å±æ€§å’Œæ·»åŠ æŒ‰é’®åˆ°JPanelä¸­
-        jb1 = new JButton("ç¡®å®š");
+        //ÕâÀïÉèÖÃÈ·¶¨°´Å¥µÄÊôĞÔºÍÌí¼Ó°´Å¥µ½JPanelÖĞ
+        jb1 = new JButton("È·¶¨");
         jb1.setBounds(520,120,60,30);
-        //è¿™é‡Œè®¾ç½®ç¡®å®šæŒ‰é’®çš„å“åº”
+        //ÕâÀïÉèÖÃÈ·¶¨°´Å¥µÄÏìÓ¦
         jb1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,10 +39,10 @@ public class InsertCommandUI extends JFrame {
             }
         });
         jp.add(jb1);
-        //è¿™é‡Œè®¾ç½®é€€å‡ºæŒ‰é’®çš„å±æ€§å’Œæ·»åŠ æŒ‰é’®åˆ°JPanelä¸­
-        jb2 = new JButton("å–æ¶ˆ");
+        //ÕâÀïÉèÖÃÍË³ö°´Å¥µÄÊôĞÔºÍÌí¼Ó°´Å¥µ½JPanelÖĞ
+        jb2 = new JButton("È¡Ïû");
         jb2.setBounds(600,120,60,30);
-        //è¿™é‡Œæ˜¯å“åº”å–æ¶ˆæŒ‰é’®çš„äº‹ä»¶
+        //ÕâÀïÊÇÏìÓ¦È¡Ïû°´Å¥µÄÊÂ¼ş
         jb2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,9 +61,10 @@ public class InsertCommandUI extends JFrame {
 
 
     }
-    //è¿™ä¸ªæ–¹æ³•ç”¨æ¥å…³é—­å½“å‰JFrame
+    //Õâ¸ö·½·¨ÓÃÀ´¹Ø±Õµ±Ç°JFrame
     public void dispose1(){
         this.dispose();
+        ButtonEventService.frameState = 0;
     }
 
 
