@@ -27,7 +27,10 @@ public class ButtonEventService implements ActionListener {
             //执行参数配置
             setCommadFrame();
             //添加组件
+            jt.requestFocus();
             jPanel.add(jt);
+//            new TreadControl(jPanel,this).InsertCommandUITread();
+
 //            jPanel.add(ensureJB);
 //            setButtonEvent(ensureJB);
 //            jPanel.add(exitJB);
@@ -67,14 +70,26 @@ public class ButtonEventService implements ActionListener {
         jt.setBounds(80, 120, 650, 100);
         jt.setFont(new Font("宋体", Font.PLAIN, 30));
         //设置文本框透明
-//            jt.setOpaque(false);
+//        jt.setOpaque(false);
+        jt.requestFocus();
+//        jt.addComponentListener(new ComponentAdapter() {
+//            @Override
+//            public void componentShown(ComponentEvent e) {
+//                jt.requestFocus();
+//            };
+//        });
         jt.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == KeyEvent.VK_ENTER){
-                    string = jt.getText();
-                    System.out.println(string);
-                    jPanel.remove(jt);
+                    if (!jt.getText().isEmpty()){
+                        string = jt.getText();
+                        System.out.println(string);
+                        jPanel.remove(jt);
+                    }
+                    else {
+                        jPanel.remove(jt);
+                    }
 //                    jPanel.remove(ensureJB);
 //                    jPanel.remove(exitJB);
                 }
