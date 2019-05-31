@@ -7,14 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SelectAppLnkService {
+    public static String str;
     String desktopURL;
-    HashMap<String,Object> filesName;
+    public HashMap<String,Object> filesName;
     public SelectAppLnkService(String queStr){
         FileSystemView fsv = FileSystemView.getFileSystemView();
         File desktop=fsv.getHomeDirectory();    //这便是读取桌面路径的方法了
         desktopURL = desktop.getPath();
         filesName = getFilesName(desktopURL, queStr);
-        System.out.print(filesName);
+//        System.out.print(filesName);
     }
     /**
      * 获取文件夹下所有文件的名称 + 模糊查询（当不需要模糊查询时，queryStr传空或null即可）
@@ -25,7 +26,7 @@ public class SelectAppLnkService {
      * @param queryStr 模糊查询字符串
      * @return
      */
-    public static HashMap<String, Object> getFilesName(String folderPath , String queryStr) {
+    public HashMap<String, Object> getFilesName(String folderPath , String queryStr) {
         HashMap<String, Object> map = new HashMap<>();
         List<String> fileNameList = new ArrayList<>();//文件名列表
         List<String> folderNameList = new ArrayList<>();//文件夹名列表
@@ -57,7 +58,7 @@ public class SelectAppLnkService {
         }
         return map;
     }
-    public static void main(String[] args) {
-        new SelectAppLnkService(null);
-    }
+//    public static void main(String[] args) {
+//        new SelectAppLnkService(str);
+//    }
 }

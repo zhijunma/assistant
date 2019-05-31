@@ -6,13 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.util.HashMap;
 
 public class ButtonEventService implements ActionListener {
     Integer i = 0;
-    //取消按钮
-    private JButton exitJB;
-    //确定按钮
-    private JButton ensureJB;
+    public GetAppURLService urlService;
     public JTextField jt;
     public JPanel jPanel;
     public static int frameState = 0;
@@ -84,6 +83,18 @@ public class ButtonEventService implements ActionListener {
                 if (e.getKeyChar() == KeyEvent.VK_ENTER){
                     if (!jt.getText().isEmpty()){
                         string = jt.getText();
+                        HashMap<String, Object> map = new HashMap<>();
+                        map = new SelectAppLnkService(jt.getText()).filesName;
+                        try {
+                            string = new GetAppURLService(new File(GetAppURLService.deskUrl +
+                                    map.get("fileNameList").toString().replaceAll("\\[","").replaceAll("]","")))
+                            .getRealFilename();
+                            if (!string.isEmpty()){
+                                GetAppURLService.openExe(string);
+                            }
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
                         System.out.println(string);
                         jPanel.remove(jt);
                     }

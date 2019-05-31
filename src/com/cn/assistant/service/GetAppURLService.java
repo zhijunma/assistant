@@ -3,6 +3,7 @@ package com.cn.assistant.service;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.HashMap;
 
 
 public class GetAppURLService
@@ -11,7 +12,7 @@ public class GetAppURLService
     {
         parse(f);
     }
-
+    public static String deskUrl = "C:\\Users\\Administrator\\Desktop\\";
     private boolean is_dir;
 
     public boolean isDirectory()
@@ -19,7 +20,7 @@ public class GetAppURLService
         return is_dir;
     }
 
-    private String real_file;
+    private static String real_file;
 
     public String getRealFilename()
     {
@@ -74,7 +75,7 @@ public class GetAppURLService
         // get the local volume and local system values
         int local_sys_off = link[file_start + 0x10] + file_start;
         real_file = getNullDelimitedString(link, local_sys_off);
-        p("real filename = " + real_file);
+//        p("real filename = " + real_file);
     }
 
     static String getNullDelimitedString(byte[] bytes, int off)
@@ -96,13 +97,38 @@ public class GetAppURLService
     {
         return (bytes[off] & 0xFF) | ((bytes[off + 1] & 0xFF) << 8) ;
     }
-    public static void p(String str)
+//    public static void p(String str)
+//    {
+//        System.out.println(str);
+//    }
+
+
+    public String getAppRealUrl(HashMap<String, Object> map) throws Exception
     {
-        System.out.println(str);
+//        HashMap<String, Object> map = new HashMap<>();
+//        map = new SelectAppLnkService(str).filesName;
+        String url = deskUrl+
+                map.get("fileNameList").toString().replaceAll("\\[","").replaceAll("]","");
+
+        new GetAppURLService(new File(url));
+        return real_file;
+    }
+//    public static void main(String[] args) throws Exception
+//    {
+//        getAppRealUrl("‘∆“Ù¿÷");
+//        System.out.println("\n"+real_file);
+////        openExe(real_file);
+//    }
+    public static void openExe(String s) {
+        final Runtime runtime = Runtime.getRuntime();
+        Process process = null;
+
+        try {
+            process = runtime.exec(s);
+
+        } catch (final Exception e) {
+            System.out.println("Error exec!");
+        }
     }
 
-    public static void main(String[] args) throws Exception
-    {
-        new GetAppURLService(new File("C:\\Users\\Administrator\\Desktop\\"+"%”–µ¿¥ µ‰%"+".lnk"));
-    }
 }
