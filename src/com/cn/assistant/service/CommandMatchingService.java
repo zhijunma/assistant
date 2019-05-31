@@ -6,7 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * 匹配命令的service
+ * 这个service用来将输入的命令和原有的命令进行匹配
+ * 匹配后获得最大公共字符串
  */
 public class CommandMatchingService {
     private int a;

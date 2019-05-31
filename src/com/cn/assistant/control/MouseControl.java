@@ -22,24 +22,24 @@ public class MouseControl extends MouseAdapter {
 		origin.y = e.getY();
 //		System.out.println(origin.x+","+origin.y);
 		if(origin.x>845 && origin.x<910 && origin.y>210 && origin.y<255 && softcontrol.softtimer.flashid==2){
-			System.out.println("ÍÈ");
-//			softcontrol.softdao.behave.startdance();
+//			System.out.println("ÍÈ");
+			softcontrol.softdao.behave.startdance();
 		}
 		else if(origin.x>835 && origin.x<880 && origin.y>92 && origin.y<110 && softcontrol.softtimer.flashid==2){
-			System.out.println("ÑÛ¾¦");
-//			softcontrol.softdao.behave.startsleep();
+//			System.out.println("ÑÛ¾¦");
+			softcontrol.softdao.behave.startsleep();
 		}
 		else if(origin.x>825 && origin.x<890 && origin.y>48 && origin.y<65 && softcontrol.softtimer.flashid==2){
-			System.out.println("¶ú¶ä");
-//			softcontrol.softdao.behave.startspeak();
+//			System.out.println("¶ú¶ä");
+			softcontrol.softdao.behave.startspeak();
 		}
-		else if(origin.x>740 && origin.x<780 && origin.y>770 && origin.y<850 && softcontrol.softtimer.flashid==4){
-			System.out.println("´Ð");
-//			softcontrol.softdao.behave.startwait();
+		else if(origin.x>740 && origin.x<780 && origin.y>70 && origin.y<150 && softcontrol.softtimer.flashid==4){
+//			System.out.println("´Ð");
+			softcontrol.softdao.behave.startwait();
 		}
-		else if((origin.x>890 || origin.x<825) && origin.y>860 && origin.y<950 && softcontrol.softtimer.flashid==2){
-			 System.out.println("Í··¢");
-//			softcontrol.softdao.behave.startjump();
+		else if((origin.x>890 || origin.x<825) && origin.y>60 && origin.y<250 && softcontrol.softtimer.flashid==2){
+//			 System.out.println("Í··¢");
+			softcontrol.softdao.behave.startjump();
 		}
 	}
 

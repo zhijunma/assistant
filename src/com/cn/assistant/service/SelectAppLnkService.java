@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * 这个service用来获取所有的桌面快捷方式，以map的方式进行缓存
+ */
 public class SelectAppLnkService {
     public static String str;
     String desktopURL;
@@ -54,11 +57,12 @@ public class SelectAppLnkService {
                 }
                 map.put("fileNameList", fileNameList);
                 map.put("folderNameList", folderNameList);
+//                System.out.println(map);
             }
         }
         return map;
     }
-//    public static void main(String[] args) {
-//        new SelectAppLnkService(str);
-//    }
+    public static void main(String[] args) {
+        System.out.println(new SelectAppLnkService(".exe").filesName);
+    }
 }

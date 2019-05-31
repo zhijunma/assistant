@@ -10,30 +10,26 @@ import java.io.File;
 import java.util.HashMap;
 
 public class ButtonEventService implements ActionListener {
+    //主窗口按钮标记
     Integer i = 0;
-    public GetAppURLService urlService;
+    //公用的文本框
     public JTextField jt;
+    //文本框所在的panel
     public JPanel jPanel;
-    public static int frameState = 0;
+    //通用字符串
     public String string;
+    //文件类型 获取文件的后缀
+    public String fileType;
+    public static int frameState = 0;
 
     @Override
     public void actionPerformed(ActionEvent e) {
         //响应输入文本的按钮
         if (i == 0){
-//            TreadControl treadControl = new TreadControl();
-//            treadControl.InsertCommandUITread();
-            //执行参数配置
             setCommadFrame();
             //添加组件
             jt.requestFocus();
             jPanel.add(jt);
-//            new TreadControl(jPanel,this).InsertCommandUITread();
-
-//            jPanel.add(ensureJB);
-//            setButtonEvent(ensureJB);
-//            jPanel.add(exitJB);
-//            setButtonEvent(exitJB);
             }
         else if (i == 1){
 
@@ -50,11 +46,15 @@ public class ButtonEventService implements ActionListener {
         }
 
     }
+    //构造方法，获取按钮标识和当前panel
     public ButtonEventService(int i,JPanel jPanel){
         this.i = i;
         this.jPanel = jPanel;
     }
 
+    /**
+     * 给文本框参数进行配置
+     */
     public void setCommadFrame() {
 //        //给确定按钮进行参数设置
 //        ensureJB = new JButton("确定");
@@ -70,7 +70,7 @@ public class ButtonEventService implements ActionListener {
         jt.setFont(new Font("宋体", Font.PLAIN, 30));
         //设置文本框透明
 //        jt.setOpaque(false);
-        jt.requestFocus();
+//        jt.requestFocus();
 //        jt.addComponentListener(new ComponentAdapter() {
 //            @Override
 //            public void componentShown(ComponentEvent e) {
@@ -89,8 +89,12 @@ public class ButtonEventService implements ActionListener {
                             string = new GetAppURLService(new File(GetAppURLService.deskUrl +
                                     map.get("fileNameList").toString().replaceAll("\\[","").replaceAll("]","")))
                             .getRealFilename();
+                            fileType = GetFileType(string);
+                            System.out.println(fileType);
+                            System.out.println("+++++++++"+string);
                             if (!string.isEmpty()){
-                                GetAppURLService.openExe(string);
+                                    GetAppURLService.openExe(string);
+                                    //Todo 使用case来判断文件的类型和打开的方式
                             }
                         } catch (Exception e1) {
                             e1.printStackTrace();
@@ -107,7 +111,15 @@ public class ButtonEventService implements ActionListener {
             }
         });
     }
-
+    /**
+     * 获取文件的后缀名
+     */
+    public String GetFileType(String string){
+        int length = string.length();
+        //截取最后3位后缀名
+        String str = string.substring(length-3, length);
+        return str;
+    }
     /**
      * 设置按钮事件
      * @param jButton
