@@ -2,8 +2,6 @@ package com.cn.assistant.entity;
 
 import com.cn.assistant.service.SelectAppLnkService;
 
-import javax.swing.filechooser.FileSystemView;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -177,13 +175,6 @@ public class DesktopAppLNK {
 
         }
     }
-    //用记事本打开一个TXT文件
-    public void openTxt(){
-        try {
-            Runtime.getRuntime().exec(("C:\\WINDOWS\\system32\\notepad.exe "+FileSystemView.getFileSystemView().getHomeDirectory()+"\\新建文本文档.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 }
 

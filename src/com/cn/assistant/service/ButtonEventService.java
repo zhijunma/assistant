@@ -16,10 +16,12 @@ public class ButtonEventService implements ActionListener {
     public JTextField jt;
     //文本框所在的panel
     public JPanel jPanel;
-    //通用字符串
-    public String string;
+    //文件路径  绝对路径
+    public String fileUrl;
     //文件类型 获取文件的后缀
     public String fileType;
+    //文件名
+    public String fileName;
     public static int frameState = 0;
 
     @Override
@@ -82,24 +84,40 @@ public class ButtonEventService implements ActionListener {
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == KeyEvent.VK_ENTER){
                     if (!jt.getText().isEmpty()){
-                        string = jt.getText();
+                        fileUrl = jt.getText();
                         HashMap<String, Object> map = new HashMap<>();
                         map = new SelectAppLnkService(jt.getText()).filesName;
-                        try {
-                            string = new GetAppURLService(new File(GetAppURLService.deskUrl +
-                                    map.get("fileNameList").toString().replaceAll("\\[","").replaceAll("]","")))
-                            .getRealFilename();
-                            fileType = GetFileType(string);
-                            System.out.println(fileType);
-                            System.out.println("+++++++++"+string);
-                            if (!string.isEmpty()){
-                                    GetAppURLService.openExe(string);
+//                        System.out.println(GetFileType(map.get("fileNameList").toString().replaceAll("\\[", "").replaceAll("]", "")));
+                        fileName = map.get("fileNameList").toString().replaceAll("\\[", "").replaceAll("]", "");
+                        //判断文件的类型 并根据相应的类型决定打开方式
+                        if (GetFileType(fileName).equals("lnk") || GetFileType(fileName).equals("LNK")) {
+                            try {
+                                //通过桌面的快捷方式获取快捷方式的应用的决对地址
+                                fileUrl = new GetAppURLService(new File(GetAppURLService.deskUrl +
+                                        map.get("fileNameList").toString().replaceAll("\\[", "").replaceAll("]", "")))
+                                        .getRealFilename();
+                                fileType = GetFileType(fileUrl);
+                                System.out.println(fileType);
+//                                if (!fileUrl.isEmpty()) {
+                                    //注意这里无法使用“==”进行判断
+                                    //判断文件时可打开的EXE文件  并打开这个文件
+                                    if (fileType.equals("exe") || fileType.equals("EXE")) {
+                                        GetAppURLService.openExe(fileUrl);
+                                    }
+                                    else if (fileType.equals("doc") || fileType.equals("docx")) {
+//                                        todo 打开doc文档的方式
+                                    }
+//                                    判断文件是不是可打开的TXT文档  并打开这个文档
+                                    else if (fileType.equals("txt") || fileType.equals("TXT")) {
+                                        new FileTypeOpenWay().openTxt(fileUrl);
+                                    }
                                     //Todo 使用case来判断文件的类型和打开的方式
+//                                }
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
                             }
-                        } catch (Exception e1) {
-                            e1.printStackTrace();
                         }
-                        System.out.println(string);
+                        System.out.println(fileUrl);
                         jPanel.remove(jt);
                     }
                     else {
