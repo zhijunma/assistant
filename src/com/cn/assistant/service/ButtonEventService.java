@@ -111,7 +111,7 @@ public class ButtonEventService implements ActionListener {
                                     else if (fileType.equals("txt") || fileType.equals("TXT")) {
                                         new FileTypeOpenWay().openTxt(fileUrl);
                                     }
-                                    //Todo 使用case来判断文件的类型和打开的方式
+                                    //Todo 使用case来判断文件的类型和打开的方
 //                                }
                             } catch (Exception e1) {
                                 e1.printStackTrace();
