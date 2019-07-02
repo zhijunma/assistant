@@ -54,23 +54,23 @@ public class JPanelSoft extends JPanel{
 		jButtons[0].setBounds(950,240,20,20);
 		//Òþ²Ø°´Å¥±ß¿ò
 		jButtons[0].setBorderPainted(false);
-		jButtons[0].addActionListener(new ButtonEventService(0,this));
+		jButtons[0].addActionListener(new ButtonEventService(0,this,softcontrol));
 		jButtons[1] = new JButton(img[1]);
 		jButtons[1].setBounds(950,210,20,20);
 		jButtons[1].setBorderPainted(false);
-		jButtons[1].addActionListener(new ButtonEventService(1,this));
+		jButtons[1].addActionListener(new ButtonEventService(1,this,softcontrol));
 		jButtons[2] = new JButton(img[2]);
 		jButtons[2].setBounds(950,180,20,20);
 		jButtons[2].setBorderPainted(false);
-		jButtons[2].addActionListener(new ButtonEventService(2,this));
+		jButtons[2].addActionListener(new ButtonEventService(2,this,softcontrol));
 		jButtons[3] = new JButton(img[3]);
 		jButtons[3].setBounds(950,150,20,20);
 		jButtons[3].setBorderPainted(false);
-		jButtons[3].addActionListener(new ButtonEventService(3,this));
+		jButtons[3].addActionListener(new ButtonEventService(3,this,softcontrol));
 		jButtons[4] = new JButton(img[4]);
 		jButtons[4].setBounds(950,120,20,20);
 		jButtons[4].setBorderPainted(false);
-		jButtons[4].addActionListener(new ButtonEventService(4,this));
+		jButtons[4].addActionListener(new ButtonEventService(4,this,softcontrol));
 		return jButtons;
 	}
 }

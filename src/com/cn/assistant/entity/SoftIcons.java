@@ -15,7 +15,7 @@ public class SoftIcons {
 
 	public Image[] JUMP_IMG = new Image[8];
 
-	public static final Image DIALOG_IMG = new ImageIcon("image/win/dialog.png").getImage();;
+	public static final Image DIALOG_IMG = new ImageIcon("image/win/dialog.png").getImage();
 
 	public static final Image DIALOG_IMG2 = new ImageIcon("image/win/dialog2.png").getImage();
 

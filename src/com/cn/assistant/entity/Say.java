@@ -13,5 +13,11 @@ public class Say {
 			"I love dancing",
 			"点我头发嘿嘿Y^_^Y"
 	};
-
+	public static final String[] buttonWord = {
+			"输入要打开的文件名",
+			"这个用来换桌面吧",
+			"这个用来关闭打开的应用？",
+			"这个要用来干嘛呢",
+			"这个要用来干嘛呢",
+	};
 }

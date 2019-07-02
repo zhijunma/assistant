@@ -113,12 +113,7 @@ public class GetAppURLService
         new GetAppURLService(new File(url));
         return real_file;
     }
-//    public static void main(String[] args) throws Exception
-//    {
-//        getAppRealUrl("‘∆“Ù¿÷");
-//        System.out.println("\n"+real_file);
-////        openExe(real_file);
-//    }
+
     public static void openExe(String s) {
         final Runtime runtime = Runtime.getRuntime();
         Process process = null;

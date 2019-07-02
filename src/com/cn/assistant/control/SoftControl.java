@@ -5,7 +5,6 @@ import com.cn.assistant.entity.Dialog;
 import com.cn.assistant.entity.*;
 import com.cn.assistant.ui.JFrameSoft;
 import com.cn.assistant.ui.JPanelSoft;
-import com.cn.assistant.ui.testUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,8 +13,8 @@ import java.awt.event.ActionListener;
 
 public class SoftControl {
 
-	public JPanelSoft panel;
-	public JFrameSoft frame ;
+	public  JPanelSoft panel;
+	public static JFrameSoft frame ;
 	public SoftDao softdao ;
 	public TimerControl softtimer;
 
@@ -30,8 +29,6 @@ public class SoftControl {
 		// 创建游戏面板
 		this.panel = new JPanelSoft(this);
 		this.panel.setLayout(null);
-//        new ButtonControl(panel);
-//        new testUI(panel);
 		frame = new JFrameSoft(panel);
 		frame.setVisible(true);
 		frame.setIconImage(SoftIcons.ICON_IMG);
@@ -75,11 +72,11 @@ public class SoftControl {
 			limitFrameItem.addActionListener(listener2);
 
 			//退出程序选项
-			MenuItem exitItem = new MenuItem("exit");
+			MenuItem exitItem = new MenuItem("退出");
 			exitItem.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if (JOptionPane.showConfirmDialog(null, "ok？", " ", JOptionPane.YES_NO_OPTION) == 0) {
+					if (JOptionPane.showConfirmDialog(null, "确定", " ", JOptionPane.YES_NO_OPTION) == 0) {
 						System.exit(0);
 					}
 				}
@@ -100,8 +97,5 @@ public class SoftControl {
 
 		}
 	}
-    public void getUI(){
-	    new testUI(panel);
-    }
 
 }

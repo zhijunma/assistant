@@ -63,24 +63,24 @@ public class TimerControl {
 			}
 		};
 
-		saytimer = new Thread(){
-			public void run(){
-				for(;;){
-					if(flashid==2) softcontrol.dialog.say = !softcontrol.dialog.say;
-					else softcontrol.dialog.say=true;
-					softcontrol.softdao.behave.wordchange();
-					try {
-						if(flashid==2) Thread.sleep(7000);
-						else Thread.sleep(4000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-		};
+//		saytimer = new Thread(){
+//			public void run(){
+//				for(;;){
+//					if(flashid==2) softcontrol.dialog.say = !softcontrol.dialog.say;
+//					else softcontrol.dialog.say=true;
+//					softcontrol.softdao.behave.wordchange();
+//					try {
+//						if(flashid==2) Thread.sleep(7000);
+//						else Thread.sleep(4000);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//		};
 
 		sleeptimer.start();
-		saytimer.start();
+//		saytimer.start();
 	}
 }

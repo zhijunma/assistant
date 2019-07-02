@@ -24,8 +24,9 @@ public class Dialog {
 
 	public void draw(Graphics g){
 
-		if(say)
+		if(say) {
 			g.drawImage(SoftIcons.DIALOG_IMG2 ,x , y, null);
+		}
 
 	}
 }

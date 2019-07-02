@@ -1,4 +1,4 @@
-package com.cn.assistant.service;
+package com.cn.assistant.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,10 +6,10 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * 这个service用来将输入的命令和原有的命令进行匹配
+ * 这个工具类用来将输入的命令和原有的命令进行匹配
  * 匹配后获得最大公共字符串
  */
-public class CommandMatchingService {
+public class CommandMatchingUtils {
     private int a;
     private int b;
 
@@ -105,6 +105,6 @@ public class CommandMatchingService {
      */
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        System.out.println(new CommandMatchingService().getMaxLengthCommonString("打开云音乐", "云音乐"));
+        System.out.println(new CommandMatchingUtils().getMaxLengthCommonString("打开云音乐", "云音乐"));
     }
 }

@@ -20,7 +20,7 @@ public class MouseControl extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		origin.x = e.getX();
 		origin.y = e.getY();
-//		System.out.println(origin.x+","+origin.y);
+		System.out.println(origin.x+","+origin.y);
 		if(origin.x>845 && origin.x<910 && origin.y>210 && origin.y<255 && softcontrol.softtimer.flashid==2){
 //			System.out.println("ÍÈ");
 			softcontrol.softdao.behave.startdance();
@@ -37,7 +37,7 @@ public class MouseControl extends MouseAdapter {
 //			System.out.println("´Ð");
 			softcontrol.softdao.behave.startwait();
 		}
-		else if((origin.x>890 || origin.x<825) && origin.y>60 && origin.y<250 && softcontrol.softtimer.flashid==2){
+		else if(((origin.x<825 && origin.x>780 ) || (origin.x>890 && origin.x<930 )) && origin.y>60 && origin.y<250 && softcontrol.softtimer.flashid==2){
 //			 System.out.println("Í··¢");
 			softcontrol.softdao.behave.startjump();
 		}

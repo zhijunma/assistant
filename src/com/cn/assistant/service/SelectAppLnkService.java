@@ -63,6 +63,6 @@ public class SelectAppLnkService {
         return map;
     }
     public static void main(String[] args) {
-        System.out.println(new SelectAppLnkService(".exe").filesName);
+        System.out.println(new SelectAppLnkService("ssssss").filesName.size());
     }
 }

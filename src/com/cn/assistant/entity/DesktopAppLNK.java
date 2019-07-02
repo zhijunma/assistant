@@ -8,10 +8,11 @@ import java.util.*;
  * 这个类用来获取桌面的所有快捷方式,文件和文件夹，并将其放到数组appLINKS中
  */
 public class DesktopAppLNK {
-    public static String [] appLNKS;
-    public static String [] apps;
-    public static String [] folders;
-    public static String [] files;
+//    public static String [] allfile;
+    public  String [] appLNKS;
+    public  String [] apps;
+    public  String [] folders;
+    public  String [] files;
     public  List<String> folderNameList1;
     public  List<String> fileNameList1;
 
@@ -34,7 +35,7 @@ public class DesktopAppLNK {
         appLNKS = new String[fileNameList1.size()];
         fileNameList1.toArray(appLNKS);
 //        这是测试
-//        for (String  s: appFiles){
+//        for (String  s: appLNKS){
 //            System.out.println(s);
 //        }
     }
